@@ -7,7 +7,7 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -24,4 +24,38 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Initial fall animation */
+@keyframes fall {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(175deg);
+  }
+}
+
+/* Infinite swinging animation */
+@keyframes swing {
+  0% {
+    transform: rotate(175deg); /* Stay upside down */
+  }
+  50% {
+    transform: rotate(125deg); /* Swing right */
+  }
+  100% {
+    transform: rotate(175deg); /* Swing left */
+  }
+}
+
+.falling-object {
+  /* Fall animation */
+  animation:
+    fall 2s ease-out forwards,
+    swing 4s ease-in-out infinite;
+  animation-delay: 2s, 4s; /* Delay the swing until the fall ends */
 }
